@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'users/index'
+  get 'users/new'
+  get 'users/create'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.htm
   root to: 'tasks#index'
   
@@ -15,4 +18,5 @@ Rails.application.routes.draw do
   
 #   # edit: 更新用のフォームページ
 #   get 'tasks/:id/edit', to: 'tasks#edit'
+  resources :users, only: [:index, :new, :create]
 end

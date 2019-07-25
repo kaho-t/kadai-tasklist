@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+  get 'sessions/create'
+  get 'sessions/destroy'
   get 'users/index'
   get 'users/new'
   get 'users/create'
@@ -18,5 +21,9 @@ Rails.application.routes.draw do
   
 #   # edit: 更新用のフォームページ
 #   get 'tasks/:id/edit', to: 'tasks#edit'
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
+
   resources :users, only: [:index, :new, :create]
 end
